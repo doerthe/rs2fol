@@ -9,7 +9,7 @@
 # ψ ... :Someone :eats :grass .
 # -----------------------------------------------------------------------------------------------------------------
 
-# Γ
+# background (not really Γ, but similar)
 (_:X) log:onNegativeSurface {
    _:X a :Cow .
    () log:onNegativeSurface {
@@ -18,13 +18,13 @@
 } .
 
 # ((ϕy/x) ψ -> (∃xϕ) ψ) -> (:This :is :working)
-() log:onNegativeSurface {
+(_:y) log:onNegativeSurface {
     # (ϕy/x) ψ -> (∃xϕ) ψ
     () log:onNegativeSurface {
         # (ϕy/x) ψ
         () log:onNegativeSurface {
             # ϕy/x
-            :Mona a :Cow.
+            _:y a :Cow.
             # -> ψ
             () log:onNegativeSurface {
                 :Someone :eats :grass.
@@ -32,11 +32,9 @@
         } .
         # -> ∃xϕ ψ
         () log:onNegativeSurface {
-            () log:onNegativeSurface {
-                # ∃xϕ
-                (_:X) log:onPositiveSurface {
+             # ∃xϕ
+            (_:X) log:onNegativeSurface {       
                      _:X a :Cow .
-                } .
                 # -> ψ
                 () log:onNegativeSurface {
                      :Someone :eats :grass .
